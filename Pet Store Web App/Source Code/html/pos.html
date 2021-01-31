@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Pet Shop</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="styles.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<br/>
+		<div class="container">
+			<div class="leftPanel">
+				<div class="col-med btn-toolbar row">
+					<button class="btn-primary" id="btnSale">Start New Sale</button>
+		    			<input type="text" name="look" id="receiptText" />
+		    			<button class="btn-success" id="btnReciept">Look Up Receipt</button>	
+		    		</div>
+		    		<br/>
+				<div class="col-med btn-toolbar row">
+		    			<button class="btn btn-info cat">Buy Cat</button>
+		    			<button class="btn btn-info dog">Buy Dog</button>
+		    			<button class="btn btn-info fish">Buy Fish</button>
+		    			<button class="btn btn-info turtle">Buy Turtle</button>
+		   		</div>
+		   		<div>
+		    			<p>Total Amount</p>
+		    			<input type="text" name="totalAmount" id="totalAmount" disabled />
+		    		</div>
+		    		<div>
+		    			<p>Amount Given</p>
+		    			<input type="text" name="inputCash" id="inputCash" />
+		    			<button class="btn btn-success" id="pay">PAY</button>	
+		    			<button class="btn btn-success" id="refund">PARTIAL REFUND</button>
+		    			<button class="btn btn-success" id="fullRefund">FULL REFUND</button>	
+		    			<button class="btn btn-warning" id="cancel">CANCEL</button>	    		
+		    		</div>
+		    		<div>
+		    			<p>Change</p>
+		    			<input type="text" name="change" id="change" disabled />
+		    		</div>
+		    		<div>
+		    			<p>Receipt</p>
+		    			<input type="text" name="receiptId" id="receiptId" disabled />
+		    		</div>
+		    		<div class="col-med btn-toolbar row">
+		    			<button class="btn btn-info xReading">X Reading</button>
+		    			<button class="btn btn-info zReading">Z reading</button>
+		   		</div>
+			</div>
+			<div class="rightPanel">
+				<div>Items</div>
+				<div class="col-med items"></div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="salescript.js"></script>
+	</body>
+</html>
