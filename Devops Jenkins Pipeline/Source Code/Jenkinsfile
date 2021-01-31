@@ -1,0 +1,44 @@
+node('linux') {
+
+        stage('Stage1: Create a Test Stack') {
+
+            git credentialsId: 'jenkins-github-connection', url: 'https://github.com/UST-SEIS665/final-seis665-02-spring2019-pratiksh665'
+
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'jenkins-aws-connection', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+			
+                       sh 'aws cloudformation create-stack --stack-name final-test --region us-east-1 --template-body file://docker-single-server-1.json --parameters ParameterKey=KeyName,ParameterValue=atschool ParameterKey=YourIp,ParameterValue=$(curl ifconfig.me)/32'
+					   
+                       sh 'aws cloudformation wait stack-create-complete --stack-name final-test --region us-east-1'
+                       
+					   sh 'aws cloudformation describe-stacks --stack-name final-test --region us-east-1'
+                       
+					   env.docker1IP = sh returnStdout: true, script: 'aws cloudformation describe-stacks --stack-name final-test --region us-east-1 --query Stacks[].Outputs[].[OutputValue] --output text'
+                
+			   		   sshagent(['2c54210c-f1f2-4794-9d15-6d34c6a3d2b4']) {
+                            sh 'ssh -o StrictHostKeyChecking=no ubuntu@${docker1IP} uptime'
+                       }
+            }
+        }
+
+		stage('Stage2: Deploy Redis Standalone') {
+               sshagent(['2c54210c-f1f2-4794-9d15-6d34c6a3d2b4']) {
+                       sh 'ssh ubuntu@${docker1IP} docker run -d --name redis -p 6379:6379 redis:latest'
+               }
+
+        }
+
+        stage('Stage3: Test Redis Standalone') {
+               sshagent(['2c54210c-f1f2-4794-9d15-6d34c6a3d2b4']) {
+                       sh 'ssh ubuntu@${docker1IP} redis-cli set hello world'
+                       sh 'ssh ubuntu@${docker1IP} redis-cli get hello'
+               }
+        }
+
+
+        stage('Stage4: Delete Test Stack') {
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'jenkins-aws-connection', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+					   sh 'aws cloudformation delete-stack --stack-name final-test --region us-east-1'
+					   sh 'aws cloudformation wait stack-delete-complete --stack-name final-test --region us-east-1'
+               }
+        }
+ }
