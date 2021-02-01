@@ -1,0 +1,2750 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/30/2020 9:38:21 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-2HSP27K"
+  DTS:CreatorName="DESKTOP-2HSP27K\17637"
+  DTS:DTSID="{C124A803-A1FD-4AAA-AC1A-1BB00F06FBE2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.68"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="103"
+  DTS:VersionGUID="{D534FAC5-50C9-498A-B2F7-80BDA00BAE09}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Products]"
+      DTS:CreationName="ADO.NET:SQL"
+      DTS:DTSID="{51D52E1F-1C20-4B82-A2C8-16713E3D65BE}"
+      DTS:ObjectName="Products">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.\GPSSQL;User ID=SEIS732_Team_28_Products_User;Connect Timeout=30;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="Q0MmMeqXMDA="
+            IV="vhbyOYdvDOCVRsiykkH/4A==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>vhbyOYdvDOCVRsiykkH/4DO5Jai3DMvwhJgikpis0TH89gsr7w+P2uKGZQ2oSPF5tZlxv+lsSKwLc0b7r0x4Vuy35dORyYP3dCh0rfgyhoRTOw7GRisiz8Q2Xr5+z6f6F36WToNSMo8uAFvQj5BjigdczXNV0cQZl4XnpHkzL4U6yDCkpPDPSVIAbn6P97Hm</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Sales_Org]"
+      DTS:CreationName="ADO.NET:SQL"
+      DTS:DTSID="{12F1611E-E8C4-41A5-93D0-79C1A6709C35}"
+      DTS:ObjectName="Sales_Org">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.\GPSSQL;User ID=SEIS732_Team_28_Sales_Org_User;Connect Timeout=30;">
+          <EncryptedData
+            Type="http://www.w3.org/2001/04/xmlenc#Element"
+            Salt="CzxYD3z8hnM="
+            IV="hVfaczHRNQSy/m1xtuvwRw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            <EncryptionMethod
+              Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
+            <CipherData>
+              <CipherValue>hVfaczHRNQSy/m1xtuvwRxmYOiavlurHEoTWcSiIfuJXtwZi1UAhMtELOScCZW9Hra9S9evGsj4RiDe2tCyfZ29CMf1AmeWLKe1vBupekAJzqFsuhwYqsNIejqTxD/cY9jPDGccUTkJP99907CIVQwius1ScjGrudGzLKU1JuGAatMauno7S+E6rwAXbnOy5</CipherValue>
+            </CipherData>
+          </EncryptedData>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ETL_CUSTOMER (Product CDM)"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E16BD495-8543-4712-8A37-39622AF676D4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_CUSTOMER (Product CDM)">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ETL_CUSTOMER (Product CDM)\Delete_CUSTOMER"
+          DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:Description="Execute T-SQL Statement Task"
+          DTS:DTSID="{BC371B53-654A-49AC-9650-EE3085F80D45}"
+          DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete_CUSTOMER"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87A52555-B2B7-4A88-9458-99327792ADF1}"
+              SQLTask:SqlStatementSource="DELETE FROM CUSTOMER;"
+              SQLTask:ServerVersion="9"
+              SQLTask:ExtendedLogging="True"
+              SQLTask:LocalConnectionForLogging=""
+              SQLTask:TaskName=""
+              SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Customer"
+          DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:Description="Execute T-SQL Statement Task"
+          DTS:DTSID="{9404d2dd-fa8f-4d7e-a88e-739468021b29}"
+          DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract_Customer"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{51D52E1F-1C20-4B82-A2C8-16713E3D65BE}"
+              SQLTask:SqlStatementSource="if (exists(select name from sysobjects where name = 'Extract_Customer' and type = 'V'))&#xA;&#x9;begin&#xA;&#x9;drop view Extract_Customer;&#xA;&#x9;end;&#xA;go&#xA;&#xA;create view Extract_Customer&#xA;as&#xA;select &#x9;CUST_ID as CUST_Id,&#xA;&#x9;CUST_CITY as CUST_City,&#xA;&#x9;CUST_COUNTY as CUST_County,&#xA;&#x9;CUST_STATE as CUST_State,&#xA;&#x9;CUST_COUNTRY as CUST_Country,&#xA;&#x9;CUST_ZIP as CUST_Zip&#xA;from Customer;&#xA;go"
+              SQLTask:ServerVersion="9"
+              SQLTask:ExtendedLogging="True"
+              SQLTask:LocalConnectionForLogging=""
+              SQLTask:TaskName=""
+              SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CD9FC7AC-9116-4D9D-BA67-FB5F8989A28E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract_Load_Customer"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Extract_Customer"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Extract_Customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Connections[OleDbConnection]"
+                      connectionManagerID="{8EEC9D70-6D99-44C6-8492-BD166A5A7BD1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[GPSSQL.SEIS732_Team_28_Products_User]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_Id]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Id]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_Id]"
+                          name="CUST_Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_City]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_City]"
+                          length="45"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_City]"
+                          name="CUST_City"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_County]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_County]"
+                          length="60"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_County]"
+                          name="CUST_County"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_State]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_State]"
+                          length="2"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_State]"
+                          name="CUST_State"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_Country]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Country]"
+                          length="60"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_Country]"
+                          name="CUST_Country"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Zip]"
+                          length="10"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_Zip]"
+                          name="CUST_Zip"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Id]"
+                          dataType="i8"
+                          name="CUST_Id" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="CUST_City" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_County]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CUST_County" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_State]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="CUST_State" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CUST_Country" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="CUST_Zip" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Id]"
+                          dataType="i8"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Id]"
+                          name="CUST_Id" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_City]"
+                          name="CUST_City" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_County]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_County]"
+                          name="CUST_County" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_State]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_State]"
+                          name="CUST_State" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Country]"
+                          name="CUST_Country" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Zip]"
+                          name="CUST_Zip" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Stage_Customer"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Stage_Customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Connections[OleDbConnection]"
+                      connectionManagerID="{8EEC9D70-6D99-44C6-8492-BD166A5A7BD1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[GPSSQL.SEIS732_Team_28_Products_User]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].Columns[CUST_Id]"
+                          cachedDataType="i8"
+                          cachedName="CUST_Id"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Id]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_Id]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].Columns[CUST_City]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="45"
+                          cachedName="CUST_City"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_City]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_City]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].Columns[CUST_County]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="CUST_County"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_County]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_County]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].Columns[CUST_State]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="CUST_State"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_State]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_State]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].Columns[CUST_Country]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="CUST_Country"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Country]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_Country]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].Columns[CUST_Zip]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="CUST_Zip"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Zip]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output].Columns[CUST_Zip]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Key]"
+                          dataType="numeric"
+                          name="CUST_Key"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="CUST_Id" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="CUST_City" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_County]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CUST_County" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_State]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="CUST_State" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CUST_Country" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="CUST_Zip" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer.Paths[OLE DB Source Output]"
+                  endId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6b4b82c0-8765-4cf9-aa33-15bd3214924d}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract_Load_CUSTOMER"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Customer"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[CUSTOMER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Connections[OleDbConnection]"
+                      connectionManagerID="{CB6F33EA-F242-4C0F-8735-D2B642F2428F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[GPSSQL.SEIS732_Team_28_Star_Schema_User]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].Columns[CUST_Id]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="13"
+                          cachedName="CUST_Id"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_ID]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Id]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].Columns[CUST_City]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="45"
+                          cachedName="CUST_City"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_City]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_City]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].Columns[CUST_County]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="CUST_County"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_County]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_County]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].Columns[CUST_State]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="CUST_State"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_State]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_State]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].Columns[CUST_Country]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="CUST_Country"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Country]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Country]" />
+                        <inputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].Columns[CUST_Zip]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="CUST_Zip"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Zip]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Zip]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Key]"
+                          dataType="numeric"
+                          name="CUST_Key"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_ID]"
+                          dataType="i8"
+                          name="CUST_ID" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="CUST_City" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_County]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CUST_County" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_State]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="CUST_State" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CUST_Country" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input].ExternalColumns[CUST_Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="CUST_Zip" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Stage_Customer"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Stage_Customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Connections[OleDbConnection]"
+                      connectionManagerID="{8EEC9D70-6D99-44C6-8492-BD166A5A7BD1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[GPSSQL.SEIS732_Team_28_Products_User]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Key]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Key]"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Key]"
+                          name="CUST_Key"
+                          precision="18"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Id]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Id]"
+                          length="13"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Id]"
+                          name="CUST_Id"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_City]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_City]"
+                          length="45"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_City]"
+                          name="CUST_City"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_County]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_County]"
+                          length="60"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_County]"
+                          name="CUST_County"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_State]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_State]"
+                          length="2"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_State]"
+                          name="CUST_State"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Country]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Country]"
+                          length="60"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Country]"
+                          name="CUST_Country"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Zip]"
+                          length="10"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].Columns[CUST_Zip]"
+                          name="CUST_Zip"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Key]"
+                          dataType="numeric"
+                          name="CUST_Key"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="CUST_Id" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="CUST_City" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_County]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CUST_County" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_State]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="CUST_State" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CUST_Country" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output].ExternalColumns[CUST_Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="CUST_Zip" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Key]"
+                          dataType="numeric"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Key]"
+                          name="CUST_Key"
+                          precision="18" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Id]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Id]"
+                          name="CUST_Id" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_City]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_City]"
+                          name="CUST_City" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_County]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_County]"
+                          name="CUST_County" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_State]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_State]"
+                          name="CUST_State" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Country]"
+                          name="CUST_Country" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Zip]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[CUST_Zip]"
+                          name="CUST_Zip" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER.Paths[OLE DB Source Output]"
+                  endId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL_CUSTOMER (Product CDM)\Stage_Customer"
+          DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:Description="Execute T-SQL Statement Task"
+          DTS:DTSID="{9c75cb46-a495-4ce3-85fb-18c1d97ccb44}"
+          DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Stage_Customer"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{51D52E1F-1C20-4B82-A2C8-16713E3D65BE}"
+              SQLTask:SqlStatementSource="if (exists(select name from sysobjects where name = 'Stage_Customer' and type = 'U'))&#xA;&#x9;begin&#xA;&#x9;drop table Stage_Customer;&#xA;&#x9;end;&#xA;go&#xA;&#xA;create table Stage_Customer&#xA;&#x9;(&#xA;&#x9;CUST_Key &#x9;numeric(18,0) IDENTITY(1,1) &#x9;&#x9;NOT NULL,&#xA;&#x9;CUST_Id &#x9;&#x9;varchar(13) &#x9;&#x9;&#x9;NOT NULL,&#xA;&#x9;CUST_City &#x9;varchar(45) &#x9;&#x9;&#x9;NOT NULL,&#xA;&#x9;CUST_County &#x9;varchar(60) &#x9;&#x9;&#x9;NOT NULL,&#xA;&#x9;CUST_State &#x9;varchar(2) &#x9;&#x9;&#x9;NOT NULL,&#xA;&#x9;CUST_Country &#x9;varchar(60) &#x9;&#x9;&#x9;NOT NULL,&#xA;&#x9;CUST_Zip &#x9;&#x9;varchar(10) &#x9;&#x9;&#x9;NOT NULL,&#xA;&#x9;CONSTRAINT PK_Stage_Customer PRIMARY KEY CLUSTERED ( CUST_Key ASC)&#xA;&#x9;);&#xA;go"
+              SQLTask:ServerVersion="9"
+              SQLTask:ExtendedLogging="True"
+              SQLTask:LocalConnectionForLogging=""
+              SQLTask:TaskName=""
+              SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL_CUSTOMER (Product CDM).PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{92FE353E-0302-43C5-8978-7B8B23A33441}"
+          DTS:From="Package\ETL_CUSTOMER (Product CDM)\Delete_CUSTOMER"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL_CUSTOMER (Product CDM).PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{964D4B06-D77F-4B9A-82E6-BB9258D1FABE}"
+          DTS:From="Package\ETL_CUSTOMER (Product CDM)\Extract_Customer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL_CUSTOMER (Product CDM).PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{5B5EF62D-1CD0-4420-BFC0-C7AE7994F93B}"
+          DTS:From="Package\ETL_CUSTOMER (Product CDM)\Stage_Customer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL_CUSTOMER (Product CDM).PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{6B796751-03A7-4120-A1FC-B0509D96039E}"
+          DTS:From="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM)"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{ebbead48-18fb-41e6-b5a6-5e990ff6608e}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ETL_INCENTIVE_PLAN(Product CDM)">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Delete_INCENTIVE_PLAN"
+          DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:Description="Execute T-SQL Statement Task"
+          DTS:DTSID="{544ef062-ac8e-419d-b66e-7bbc3f9a2b8c}"
+          DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete_INCENTIVE_PLAN"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{87A52555-B2B7-4A88-9458-99327792ADF1}"
+              SQLTask:SqlStatementSource="DELETE FROM INCENTIVE_PLAN;"
+              SQLTask:ServerVersion="9"
+              SQLTask:ExtendedLogging="True"
+              SQLTask:LocalConnectionForLogging=""
+              SQLTask:TaskName=""
+              SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_IncentiveProgram"
+          DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:Description="Execute T-SQL Statement Task"
+          DTS:DTSID="{651100d1-382b-4078-9a83-42a7606886c2}"
+          DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract_IncentiveProgram"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{51D52E1F-1C20-4B82-A2C8-16713E3D65BE}"
+              SQLTask:SqlStatementSource="if (exists(select name from sysobjects where name = 'Extract_IncentiveProgram' and type = 'V'))&#xA; begin&#xA; drop view Extract_IncentiveProgram;&#xA; end;&#xA;go&#xA;&#xA;create view Extract_IncentiveProgram&#xA;as&#xA;select  IP_ID as PLAN_ID,&#xA; IP_Type as PLAN_Type,&#xA; IP_Level as PLAN_Level,&#xA; IP_Name as PLAN_Name,&#xA; IP_Desc as PLAN_Description,&#xA; IP_Num_Payments as PLAN_Number_of_Payments,&#xA; IP_Rate as PLAN_Rate&#xA;from IncentiveProgram;&#xA;go"
+              SQLTask:ServerVersion="9"
+              SQLTask:ExtendedLogging="True"
+              SQLTask:LocalConnectionForLogging=""
+              SQLTask:TaskName=""
+              SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{c8d814f8-6fea-463d-8f51-5bc58d1b4927}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract_Load_IncentiveProgram"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Extract_IncentiveProgram"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Extract_IncentiveProgram]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Connections[OleDbConnection]"
+                      connectionManagerID="{8EEC9D70-6D99-44C6-8492-BD166A5A7BD1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[GPSSQL.SEIS732_Team_28_Products_User]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_ID]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_ID]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_ID]"
+                          name="PLAN_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Type]"
+                          length="15"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Type]"
+                          name="PLAN_Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Level]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Level]"
+                          length="20"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Level]"
+                          name="PLAN_Level"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Name]"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Name]"
+                          name="PLAN_Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Description]"
+                          length="256"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Description]"
+                          name="PLAN_Description"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Number_of_Payments]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Number_of_Payments]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Number_of_Payments]"
+                          name="PLAN_Number_of_Payments"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Rate]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Rate]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Rate]"
+                          name="PLAN_Rate"
+                          precision="4"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_ID]"
+                          dataType="i2"
+                          name="PLAN_ID" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="PLAN_Type" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Level]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="PLAN_Level" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Name" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          name="PLAN_Description" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Number_of_Payments]"
+                          dataType="i2"
+                          name="PLAN_Number_of_Payments" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Rate]"
+                          dataType="numeric"
+                          name="PLAN_Rate"
+                          precision="4"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_ID]"
+                          dataType="i2"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_ID]"
+                          name="PLAN_ID" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Type]"
+                          name="PLAN_Type" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Level]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Level]"
+                          name="PLAN_Level" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Name]"
+                          name="PLAN_Name" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Description]"
+                          name="PLAN_Description" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Number_of_Payments]"
+                          dataType="i2"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Number_of_Payments]"
+                          name="PLAN_Number_of_Payments" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Rate]"
+                          dataType="numeric"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Rate]"
+                          name="PLAN_Rate"
+                          precision="4"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Stage_IncentiveProgram"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Stage_IncentiveProgram]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Connections[OleDbConnection]"
+                      connectionManagerID="{8EEC9D70-6D99-44C6-8492-BD166A5A7BD1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[GPSSQL.SEIS732_Team_28_Products_User]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].Columns[PLAN_ID]"
+                          cachedDataType="i2"
+                          cachedName="PLAN_ID"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_ID]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_ID]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].Columns[PLAN_Type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="PLAN_Type"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Type]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Type]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].Columns[PLAN_Level]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="PLAN_Level"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Level]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Level]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].Columns[PLAN_Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="PLAN_Name"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Name]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Name]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].Columns[PLAN_Description]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="256"
+                          cachedName="PLAN_Description"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Description]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Description]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].Columns[PLAN_Number_of_Payments]"
+                          cachedDataType="i2"
+                          cachedName="PLAN_Number_of_Payments"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Number_of_Payments]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Number_of_Payments]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].Columns[PLAN_Rate]"
+                          cachedDataType="numeric"
+                          cachedName="PLAN_Rate"
+                          cachedPrecision="4"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_RATE]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Rate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Key]"
+                          dataType="numeric"
+                          name="PLAN_Key"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="PLAN_ID" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="PLAN_Type" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Level]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Level" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Name" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Description" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Number_of_Payments]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Number_of_Payments" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_RATE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_RATE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram.Paths[OLE DB Source Output]"
+                  endId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{14fb6429-ed33-4b1c-b763-df4033aec5f5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Extract_Load_INCENTIVE_PLAN"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="INCENTIVE_PLAN"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[INCENTIVE_PLAN]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Connections[OleDbConnection]"
+                      connectionManagerID="{CB6F33EA-F242-4C0F-8735-D2B642F2428F}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[GPSSQL.SEIS732_Team_28_Star_Schema_User]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].Columns[PLAN_ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="13"
+                          cachedName="PLAN_ID"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_ID]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_ID]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].Columns[PLAN_Type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="45"
+                          cachedName="PLAN_Type"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Type]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Type]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].Columns[PLAN_Level]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="PLAN_Level"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Level]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Level]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].Columns[PLAN_Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="PLAN_Name"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Name]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Name]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].Columns[PLAN_Description]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="PLAN_Description"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Description]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Description]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].Columns[PLAN_Number_of_Payments]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="PLAN_Number_of_Payments"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Number_of_Payments]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Number_of_Payments]" />
+                        <inputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].Columns[PLAN_RATE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="PLAN_RATE"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Rate]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_RATE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Key]"
+                          dataType="numeric"
+                          name="PLAN_Key"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_ID]"
+                          dataType="i2"
+                          name="PLAN_ID" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="PLAN_Type" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Level]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="PLAN_Level" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Name" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="256"
+                          name="PLAN_Description" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Number_of_Payments]"
+                          dataType="i2"
+                          name="PLAN_Number_of_Payments" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input].ExternalColumns[PLAN_Rate]"
+                          dataType="numeric"
+                          name="PLAN_Rate"
+                          precision="4"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Stage_IncentiveProgram"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Stage_IncentiveProgram]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Connections[OleDbConnection]"
+                      connectionManagerID="{8EEC9D70-6D99-44C6-8492-BD166A5A7BD1}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[GPSSQL.SEIS732_Team_28_Products_User]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Key]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Key]"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Key]"
+                          name="PLAN_Key"
+                          precision="18"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_ID]"
+                          length="13"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_ID]"
+                          name="PLAN_ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Type]"
+                          length="45"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Type]"
+                          name="PLAN_Type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Level]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Level]"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Level]"
+                          name="PLAN_Level"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Name]"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Name]"
+                          name="PLAN_Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Description]"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Description]"
+                          name="PLAN_Description"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Number_of_Payments]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Number_of_Payments]"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_Number_of_Payments]"
+                          name="PLAN_Number_of_Payments"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_RATE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_RATE]"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].Columns[PLAN_RATE]"
+                          name="PLAN_RATE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Key]"
+                          dataType="numeric"
+                          name="PLAN_Key"
+                          precision="18" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="PLAN_ID" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="PLAN_Type" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Level]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Level" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Name" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Description" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_Number_of_Payments]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_Number_of_Payments" />
+                        <externalMetadataColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output].ExternalColumns[PLAN_RATE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="PLAN_RATE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Key]"
+                          dataType="numeric"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Key]"
+                          name="PLAN_Key"
+                          precision="18" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_ID]"
+                          name="PLAN_ID" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Type]"
+                          name="PLAN_Type" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Level]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Level]"
+                          name="PLAN_Level" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Name]"
+                          name="PLAN_Name" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Description]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Description]"
+                          name="PLAN_Description" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Number_of_Payments]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_Number_of_Payments]"
+                          name="PLAN_Number_of_Payments" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_RATE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[PLAN_RATE]"
+                          name="PLAN_RATE" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN.Paths[OLE DB Source Output]"
+                  endId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM)\Stage_IncentiveProgram"
+          DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:Description="Execute T-SQL Statement Task"
+          DTS:DTSID="{468efc10-0dbd-4bea-899a-2b2823664011}"
+          DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Stage_IncentiveProgram"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{51D52E1F-1C20-4B82-A2C8-16713E3D65BE}"
+              SQLTask:SqlStatementSource="if (exists(select name from sysobjects where name = 'Stage_IncentiveProgram' and type = 'U'))&#xA; begin&#xA; drop table Stage_IncentiveProgram;&#xA; end;&#xA;go&#xA;&#xA;create table Stage_IncentiveProgram&#xA; (&#xA; PLAN_Key  numeric(18,0) IDENTITY(1,1)   NOT NULL,&#xA; PLAN_ID   varchar(13)    NOT NULL,&#xA; PLAN_Type  varchar(45)    NOT NULL,&#xA; PLAN_Level varchar(60)    NOT NULL,&#xA; PLAN_Name varchar(60)    NOT NULL,&#xA; PLAN_Description varchar(60) NOT NULL,&#xA; PLAN_Number_of_Payments  varchar(60) NOT NULL,&#xA; PLAN_RATE varchar(60) NOT NULL,&#xA; CONSTRAINT PK_Stage_IncentiveProgram PRIMARY KEY CLUSTERED ( PLAN_Key ASC)&#xA; );&#xA;go"
+              SQLTask:ServerVersion="9"
+              SQLTask:ExtendedLogging="True"
+              SQLTask:LocalConnectionForLogging=""
+              SQLTask:TaskName=""
+              SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM).PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{901de3b6-faba-4ea6-b4cf-16f350513271}"
+          DTS:From="Package\ETL_INCENTIVE_PLAN(Product CDM)\Delete_INCENTIVE_PLAN"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM).PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{41f04344-f900-4070-aceb-5824b867ca87}"
+          DTS:From="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_IncentiveProgram"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM).PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{a44a33b3-40e9-4a85-9024-8eceebf9fe57}"
+          DTS:From="Package\ETL_INCENTIVE_PLAN(Product CDM)\Stage_IncentiveProgram"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ETL_INCENTIVE_PLAN(Product CDM).PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{b57d60b1-2b5e-4a5e-bb50-7b29b087635d}"
+          DTS:From="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\ETL_CUSTOMER (Product CDM)\Delete_CUSTOMER"
+          TopLeft="5.5,119.5" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\ETL_CUSTOMER (Product CDM)\Extract_Customer"
+          TopLeft="212.5,73" />
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer"
+          TopLeft="206.5,184" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER"
+          TopLeft="208,265" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\ETL_CUSTOMER (Product CDM)\Stage_Customer"
+          TopLeft="418.5,73" />
+        <EdgeLayout
+          Id="Package\ETL_CUSTOMER (Product CDM).PrecedenceConstraints[Constraint]"
+          TopLeft="174.5,140.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32,64.5"
+              Start="0,0"
+              End="24.5,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="12,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,0"
+                    Point2="16,0"
+                    Point3="16,4" />
+                  <mssgle:LineSegment
+                    End="16,60.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,60.5"
+                    Point2="16,64.5"
+                    Point3="20,64.5" />
+                  <mssgle:LineSegment
+                    End="24.5,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_CUSTOMER (Product CDM).PrecedenceConstraints[Constraint 1]"
+          TopLeft="293.5,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22,69"
+              Start="0,0"
+              End="-22,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0560747663551" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0560747663551"
+                    Point2="0,41.0560747663551"
+                    Point3="-4,41.0560747663551" />
+                  <mssgle:LineSegment
+                    End="-18,41.0560747663551" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18,41.0560747663551"
+                    Point2="-22,41.0560747663551"
+                    Point3="-22,45.0560747663551" />
+                  <mssgle:LineSegment
+                    End="-22,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_CUSTOMER (Product CDM).PrecedenceConstraints[Constraint 2]"
+          TopLeft="496.5,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-164,69"
+              Start="0,0"
+              End="-164,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0560747663551" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0560747663551"
+                    Point2="0,41.0560747663551"
+                    Point3="-4,41.0560747663551" />
+                  <mssgle:LineSegment
+                    End="-160,41.0560747663551" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-160,41.0560747663551"
+                    Point2="-164,41.0560747663551"
+                    Point3="-164,45.0560747663551" />
+                  <mssgle:LineSegment
+                    End="-164,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_CUSTOMER (Product CDM).PrecedenceConstraints[Constraint 3]"
+          TopLeft="305,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="622.4,368"
+          Size="622.4,411.2"
+          Id="Package\ETL_CUSTOMER (Product CDM)"
+          TopLeft="102,96" />
+        <NodeLayout
+          Size="171.2,48.8"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Delete_INCENTIVE_PLAN"
+          TopLeft="15.25,64.5" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_IncentiveProgram"
+          TopLeft="212.5,73" />
+        <NodeLayout
+          Size="230.4,41.6"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN"
+          TopLeft="208,265" />
+        <NodeLayout
+          Size="228.8,41.6"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram"
+          TopLeft="206.5,184" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Stage_IncentiveProgram"
+          TopLeft="418.5,73" />
+        <EdgeLayout
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM).PrecedenceConstraints[Constraint]"
+          TopLeft="100.75,113.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="165,70.5"
+              Start="0,0"
+              End="165,63">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.4589928057554" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.4589928057554"
+                    Point2="0,46.4589928057554"
+                    Point3="4,46.4589928057554" />
+                  <mssgle:LineSegment
+                    End="161,46.4589928057554" />
+                  <mssgle:CubicBezierSegment
+                    Point1="161,46.4589928057554"
+                    Point2="165,46.4589928057554"
+                    Point3="165,50.4589928057554" />
+                  <mssgle:LineSegment
+                    End="165,63" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM).PrecedenceConstraints[Constraint 1]"
+          TopLeft="293.5,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.5,69"
+              Start="0,0"
+              End="27.5,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="23.5,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5,34.5"
+                    Point2="27.5,34.5"
+                    Point3="27.5,38.5" />
+                  <mssgle:LineSegment
+                    End="27.5,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM).PrecedenceConstraints[Constraint 2]"
+          TopLeft="496.5,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-120.25,69"
+              Start="0,0"
+              End="-120.25,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.4705035971223" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.4705035971223"
+                    Point2="0,45.4705035971223"
+                    Point3="-4,45.4705035971223" />
+                  <mssgle:LineSegment
+                    End="-116.25,45.4705035971223" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-116.25,45.4705035971223"
+                    Point2="-120.25,45.4705035971223"
+                    Point3="-120.25,49.4705035971223" />
+                  <mssgle:LineSegment
+                    End="-120.25,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM).PrecedenceConstraints[Constraint 3]"
+          TopLeft="322,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="622.4,368"
+          Size="622.4,411.2"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)"
+          TopLeft="101.75,531.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer"
+          TopLeft="87,60" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer"
+          TopLeft="96,174" />
+        <EdgeLayout
+          Id="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer.Paths[OLE DB Source Output]"
+          TopLeft="171,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Extract_Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_Customer\Stage_Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer"
+          TopLeft="87,59" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer"
+          TopLeft="96,176" />
+        <EdgeLayout
+          Id="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER.Paths[OLE DB Source Output]"
+          TopLeft="161.5,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL_CUSTOMER (Product CDM)\Extract_Load_CUSTOMER\Stage_Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram"
+          TopLeft="87,59" />
+        <NodeLayout
+          Size="162,54"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN"
+          TopLeft="82,175" />
+        <EdgeLayout
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN.Paths[OLE DB Source Output]"
+          TopLeft="164,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\INCENTIVE_PLAN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_INCENTIVE_PLAN\Stage_IncentiveProgram">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram"
+          TopLeft="96,174" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram"
+          TopLeft="87,60" />
+        <EdgeLayout
+          Id="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram.Paths[OLE DB Source Output]"
+          TopLeft="171,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Extract_IncentiveProgram">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ETL_INCENTIVE_PLAN(Product CDM)\Extract_Load_IncentiveProgram\Stage_IncentiveProgram">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
