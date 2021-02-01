@@ -1,0 +1,470 @@
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack
+$ cd repo
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/repo
+$ git init --bare 2200-Jack.git
+Initialized empty Git repository in C:/Users/Jack/Desktop/SEIS732_Team_28/2200-Jack/repo/2200-Jack.git/
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/repo
+$ cd ../work
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work
+$ git init
+Initialized empty Git repository in C:/Users/Jack/Desktop/SEIS732_Team_28/2200-Jack/work/.git/
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (master)
+$ git remote add origin "$PWD/../repo/2200-Jack.git"
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (master)
+$ git config --local user.name 2200-Jack
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (master)
+$ git config --local user.email kejie.ruan@stthomas.edu
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Team_28_M2_Final_Submission/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (master)
+$ git add .
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (master)
+$ git commit -m "Initial and upload part of spreadsheets"
+[master (root-commit) b01e9e6] Initial and upload part of spreadsheets
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Customer.xlsx
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Dealer.xlsx
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Incentive_Plan.xlsx
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Manufacture_Date.xlsx
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (master)
+$ git push origin master
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 28.44 KiB | 455.00 KiB/s, done.
+Total 8 (delta 1), reused 0 (delta 0), pack-reused 0
+To C:/Users/Jack/Desktop/SEIS732_Team_28/2200-Jack/work/../repo/2200-Jack.git
+ * [new branch]      master -> master
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (master)
+$ git branch dev_2200-Jack
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (master)
+$ git checkout dev_2200-Jack
+Switched to branch 'dev_2200-Jack'
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (dev_2200-Jack)
+$ git status
+On branch dev_2200-Jack
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/
+        Team_28_M2_Final_Submission/Team_28_M2_D2_ETL_Project_2200-Jack.zip
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (dev_2200-Jack)
+$ git add .
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (dev_2200-Jack)
+$ git commit -m "Uploading the rest of files from Jack side"
+[dev_2200-Jack eea058d] Uploading the rest of files from Jack side
+ 5 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Customer.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Dealer.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Incentive_Plan.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Manufacture_Date.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D2_ETL_Project_2200-Jack.zip
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (dev_2200-Jack)
+$ git push origin dev_2200-Jack
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 313.65 KiB | 2.70 MiB/s, done.
+Total 10 (delta 2), reused 0 (delta 0), pack-reused 0
+To C:/Users/Jack/Desktop/SEIS732_Team_28/2200-Jack/work/../repo/2200-Jack.git
+ * [new branch]      dev_2200-Jack -> dev_2200-Jack
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/work (dev_2200-Jack)
+$ cd ../repo
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/repo
+$ 7z a 2200-Jack.zip 2200-Jack.git
+bash: 7z: command not found
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/repo
+$ export PATH=$PATH:"C:\Program Files\7-Zip"
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2200-Jack/repo
+$ 7z a 2200-Jack.zip 2200-Jack.git
+
+7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+
+Scanning the drive:
+27 folders, 36 files, 413454 bytes (404 KiB)
+
+Creating archive: 2200-Jack.zip
+
+Add new data to archive: 27 folders, 36 files, 413454 bytes (404 KiB)
+
+
+Files read from disk: 36
+Archive size: 412136 bytes (403 KiB)
+Everything is Ok
+
+Andrew
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew
+$ cd repo
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ git init --bare 1500-Andrew.git
+Initialized empty Git repository in C:/Users/Jack/Desktop/SEIS732_Team_28/1500-Andrew/repo/1500-Andrew.git/
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ cd ../work
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work
+$ git init
+Initialized empty Git repository in C:/Users/Jack/Desktop/SEIS732_Team_28/1500-Andrew/work/.git/
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ git remote add origin "$PWD/../repo/1500-Andrew.git"
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ git config --local user.name 1500-Andrew
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ git config --local user.email sli@stthomas.edu
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ cd ../repo
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ 7z x 2200-Jack.zip
+bash: 7z: command not found
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ export PATH=$PATH:"C:\Program Files\7-Zip
+> 7z x 2200-Jack.zip
+> "
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ export PATH=$PATH:"C:\Program Files\7-Zip"
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ 7z x 2200_Jack.zip
+
+7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+
+Scanning the drive for archives:
+
+ERROR: The system cannot find the file specified.
+2200_Jack.zip
+
+
+
+System ERROR:
+The system cannot find the file specified.
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ 7z x 2200-Jack.zip
+
+7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+
+Scanning the drive for archives:
+1 file, 412136 bytes (403 KiB)
+
+Extracting archive: 2200-Jack.zip
+--
+Path = 2200-Jack.zip
+Type = zip
+Physical Size = 412136
+
+Everything is Ok
+
+Folders: 27
+Files: 36
+Size:       413454
+Compressed: 412136
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ git remote add heyjack "$PWD/../repo/2200-Jack.git"
+fatal: not a git repository (or any of the parent directories): .git
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ cd ../work
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ git remote add heyjack "$PWD/../repo/2200-Jack.git"
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ git fetch heyjack
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (18/18), done.
+remote: Total 18 (delta 3), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (18/18), 342.03 KiB | 2.34 MiB/s, done.
+From C:/Users/Jack/Desktop/SEIS732_Team_28/1500-Andrew/work/../repo/2200-Jack
+ * [new branch]      dev_2200-Jack -> heyjack/dev_2200-Jack
+ * [new branch]      master        -> heyjack/master
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ git merge heyjack/master
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ git push origin master
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 28.44 KiB | 619.00 KiB/s, done.
+Total 8 (delta 1), reused 0 (delta 0), pack-reused 0
+To C:/Users/Jack/Desktop/SEIS732_Team_28/1500-Andrew/work/../repo/1500-Andrew.git
+ * [new branch]      master -> master
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ git branch dev_1500-Andrew heyjack/dev_2200-Jack
+Branch 'dev_1500-Andrew' set up to track remote branch 'dev_2200-Jack' from 'heyjack'.
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (master)
+$ git checkout dev_1500-Andrew
+Switched to branch 'dev_1500-Andrew'
+Your branch is up to date with 'heyjack/dev_2200-Jack'.
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (dev_1500-Andrew)
+$ git add .
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (dev_1500-Andrew)
+$ git status
+On branch dev_1500-Andrew
+Your branch is up to date with 'heyjack/dev_2200-Jack'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_MSA.xlsx
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Manufacturing_Plant.xlsx
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Package.xlsx
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_MSA.pdf
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Manufacturing_Plant.pdf
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Package.pdf
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D2_ETL_Project_1500-Andrew.zip
+
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (dev_1500-Andrew)
+$ git commit -m "Andrew upload 3 mapping files and support files and D2 zip"    [dev_1500-Andrew 674f7e6] Andrew upload 3 mapping files and support files and D2 zip
+ 7 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_MSA.xlsx
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Manufacturing_Plant.xlsx
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Package.xlsx
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_MSA.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Manufacturing_Plant.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Package.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D2_ETL_Project_1500-Andrew.zip
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (dev_1500-Andrew)
+$ git push origin dev_1500-Andrew
+Enumerating objects: 25, done.
+Counting objects: 100% (25/25), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (22/22), done.
+Writing objects: 100% (22/22), 505.96 KiB | 2.66 MiB/s, done.
+Total 22 (delta 6), reused 0 (delta 0), pack-reused 0
+To C:/Users/Jack/Desktop/SEIS732_Team_28/1500-Andrew/work/../repo/1500-Andrew.git
+ * [new branch]      dev_1500-Andrew -> dev_1500-Andrew
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/work (dev_1500-Andrew)
+$ cd ../repo
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/1500-Andrew/repo
+$ 7z a 1500-Andrew.zip 1500-Andrew.git
+
+7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+
+Scanning the drive:
+38 folders, 48 files, 651886 bytes (637 KiB)
+
+Creating archive: 1500-Andrew.zip
+
+Add new data to archive: 38 folders, 48 files, 651886 bytes (637 KiB)
+
+
+Files read from disk: 48
+Archive size: 654232 bytes (639 KiB)
+Everything is Ok
+
+
+Prat
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/repo
+$ git init --bare 2100-Prat.git
+Initialized empty Git repository in C:/Users/Jack/Desktop/SEIS732_Team_28/2100-Prat/repo/2100-Prat.git/
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/repo
+$ export PATH=$PATH:"C:\Program Files\7-Zip"
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/repo
+$ 7z x 1500-Andrew.zip
+
+7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+
+Scanning the drive for archives:
+1 file, 654232 bytes (639 KiB)
+
+Extracting archive: 1500-Andrew.zip
+--
+Path = 1500-Andrew.zip
+Type = zip
+Physical Size = 654232
+
+Everything is Ok
+
+Folders: 38
+Files: 48
+Size:       651886
+Compressed: 654232
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/repo
+$ cd ../work
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work
+$ git init
+Initialized empty Git repository in C:/Users/Jack/Desktop/SEIS732_Team_28/2100-Prat/work/.git/
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (master)
+$ git remote add origin "$PWD/../repo/2100-Prat.git"
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (master)
+$ git config --local user.name 2100-Prat
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (master)
+$ git config --local user.email pratiksh.patel@stthomas.edu
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (master)
+$ git remote add hiandrew "$PWD/../repo/1500-Andrew.git"
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (master)
+$ git fetch hiandrew
+remote: Enumerating objects: 30, done.
+remote: Counting objects: 100% (30/30), done.
+remote: Compressing objects: 100% (30/30), done.
+remote: Total 30 (delta 10), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (30/30), 528.68 KiB | 2.16 MiB/s, done.
+From C:/Users/Jack/Desktop/SEIS732_Team_28/2100-Prat/work/../repo/1500-Andrew
+ * [new branch]      dev_1500-Andrew -> hiandrew/dev_1500-Andrew
+ * [new branch]      master          -> hiandrew/master
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (master)
+$ git merge hiandrew/master
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (master)
+$ git push origin master
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 28.44 KiB | 469.00 KiB/s, done.
+Total 8 (delta 1), reused 0 (delta 0), pack-reused 0
+To C:/Users/Jack/Desktop/SEIS732_Team_28/2100-Prat/work/../repo/2100-Prat.git
+ * [new branch]      master -> master
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (master)
+$ git branch dev_2100-Prat hiandrew/dev_1500-Andrew
+Branch 'dev_2100-Prat' set up to track remote branch 'dev_1500-Andrew' from 'hiandrew'.
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (master)
+$ git checkout dev_2100-Prat
+Switched to branch 'dev_2100-Prat'
+Your branch is up to date with 'hiandrew/dev_1500-Andrew'.
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (dev_2100-Prat)
+$ git add .
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (dev_2100-Prat)
+$ git commit
+Aborting commit due to empty commit message.
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (dev_2100-Prat)
+$ git status
+On branch dev_2100-Prat
+Your branch is up to date with 'hiandrew/dev_1500-Andrew'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Product.xlsx
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Purchase_Date.xlsx
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Sales_Org.xlsx
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Product.pdf
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Purchase_Date.pdf
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Sales_Org.pdf
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_D2_ETL_Project_2100-Prat.zip
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_Other_Support_Files/CoverSheet.pdf
+        new file:   Team_28_M2_Final_Submission/Team_28_M2_Other_Support_Files/ReadMe.pdf
+
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (dev_2100-Prat)                                          ver sheet"mit -m "Prat adding 3 spreadsheets 3 pdf project zip and ReadMe and co"
+[dev_2100-Prat 2c0813a] Prat adding 3 spreadsheets 3 pdf project zip and ReadMe and cover sheet
+ 9 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Product.xlsx
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Purchase_Date.xlsx
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/Team_28_M2_D1_Dimension_Mapping_Sales_Org.xlsx
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Product.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Purchase_Date.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D1_Dimension_Mapping_Metadata/support/Team_28_M2_D1_Dimension_Mapping_Sales_Org.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_D2_ETL_Project_2100-Prat.zip
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_Other_Support_Files/CoverSheet.pdf
+ create mode 100644 Team_28_M2_Final_Submission/Team_28_M2_Other_Support_Files/ReadMe.pdf
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (dev_2100-Prat)
+$ git push origin dev_2100-Prat
+Enumerating objects: 40, done.
+Counting objects: 100% (40/40), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (37/37), done.
+Writing objects: 100% (37/37), 954.50 KiB | 3.52 MiB/s, done.
+Total 37 (delta 11), reused 0 (delta 0), pack-reused 0
+To C:/Users/Jack/Desktop/SEIS732_Team_28/2100-Prat/work/../repo/2100-Prat.git
+ * [new branch]      dev_2100-Prat -> dev_2100-Prat
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (dev_2100-Prat)
+$ gitk --all
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/work (dev_2100-Prat)
+$ cd ../repo
+
+Jack@DESKTOP-OS66D47 MINGW64 ~/Desktop/SEIS732_Team_28/2100-Prat/repo
+$ 7z a Team_28_M2_Final_Deliverable.zip 2100-Prat.git
+
+7-Zip 19.00 (x64) : Copyright (c) 1999-2018 Igor Pavlov : 2019-02-21
+
+Scanning the drive:
+52 folders, 63 files, 1154748 bytes (1128 KiB)
+
+Creating archive: Team_28_M2_Final_Deliverable.zip
+
+Add new data to archive: 52 folders, 63 files, 1154748 bytes (1128 KiB)
+
+
+Files read from disk: 63
+Archive size: 1160930 bytes (1134 KiB)
+Everything is Ok
+
+
+
+
+
+
+
+
